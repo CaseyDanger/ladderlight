@@ -114,9 +114,10 @@ fi
 # 3. Run gulp tasks
 if [ -e "$DEPLOYMENT_SOURCE/gulpfile.js" ]; then
   echo "Running gulp tasks"
-  cd "$DEPLOYMENT_SOURCE"
+  eval $NPM_CMD install gulp
+  exitWithMessageOnError "installing gulp failed"
+  ./node_modules/.bin/gulp
   eval $NPM_CMD run-script build
-  exitWithMessageOnError "gulp failed"
   cd - > /dev/null
 fi
 
