@@ -115,6 +115,14 @@ fi
 if [ -e "$DEPLOYMENT_SOURCE/gulpfile.js" ]; then
   echo "Running gulp tasks"
   cd "$DEPLOYMENT_SOURCE"
+  eval $NPM_CMD run-script start
+  exitWithMessageOnError "gulp failed"
+  cd - > /dev/null
+fi
+
+if [ -e "$DEPLOYMENT_SOURCE/gulpfile.js" ]; then
+  echo "Running gulp tasks"
+  cd "$DEPLOYMENT_SOURCE"
   eval $NPM_CMD run-script build
   exitWithMessageOnError "gulp failed"
   cd - > /dev/null
