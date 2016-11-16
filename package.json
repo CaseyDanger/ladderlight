@@ -10,8 +10,6 @@
     "gulp-sass": "^2.1.0"
   },
   "scripts": {
-    "init": "npm install",
-    "start": "gulp",
     "build": "gulp sass"
   },
   "repository": {
